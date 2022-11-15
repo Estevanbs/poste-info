@@ -1,0 +1,16 @@
+services:
+  database:
+    image: postgres
+    container_name: poste-info-db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=poste-info
+    volumes:
+      - pgdata:/data/postgres
+volumes:
+  pgdata:
+    driver: local
